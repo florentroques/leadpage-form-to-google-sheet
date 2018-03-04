@@ -1,0 +1,78 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+//pour tester https://inner-awakening.lpages.co/shivaratri/
+$(document).ready(function() {
+  var url =
+    'https://script.google.com/macros/s/AKfycbz6Of7ZUYJseSNJPnByR6hSC7Dl-tSyAeRfP7D2MVxD_prh3T0t/exec';
+  $form = $('form');
+  var test = {
+    'given-name': 'nom',
+    'family-name': 'prenom',
+    email: '',
+    tel: '',
+    'street-address': '',
+    'postal-code': 'code_postal',
+    'address-level2': 'ville',
+    'address-level1': ''
+  };
+
+  $form.submit(function(e) {
+    /*
+    Dans leadpages
+    les champs sont
+    "{"given-name":"", Prénom
+    "family-name":"", Nom
+    "email":"",
+    "tel":"",
+    "street-address":"",
+    "postal-code":"", Code postal
+    "address-level2":"", City
+    "address-level1":""}" -> State
+     */
+    /*
+    js-state-field
+    js-country-field
+    js-country-code-phone-number
+
+     */
+
+    var mappings = {
+      'js-country-code-phone-number': 'country-code-phone-number',
+      'js-state-field': 'state',
+      'js-country-field': 'country'
+    };
+    var formJSON = {};
+    $form.find('input[autocomplete], select, textarea').each(function(index) {
+      $this = $(this);
+      formJSON[$this.attr('autocomplete')] = $this.val();
+    });
+
+    $form.find('input[autocomplete], select, textarea').each(function(index) {
+      $this = $(this);
+
+      if ($this.is("input[autocomplete]")) {
+        formJSON[$this.attr('autocomplete')] = $this.val();
+      }
+      else if ($this.is("select")) {
+
+      }
+      else if ($)
+
+
+    });
+
+    console.log(formJSON);
+    al($form.serializeObject());
+    e.preventDefault();
+    // $.ajax({
+    //   url: url,
+    //   method: 'GET',
+    //   dataType: 'json',
+    //   data: $form.serializeObject()
+    // })
+    // .success
+    //   // do something
+    //   ();
+  });
+});
+</script>
