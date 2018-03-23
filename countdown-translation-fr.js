@@ -1,4 +1,4 @@
-#requires jQuery
+//requires jQuery
 $(document).ready(function() {
   $(".time-name:eq(0)").text("jours");
   $(".time-name:eq(1)").text("heures");
